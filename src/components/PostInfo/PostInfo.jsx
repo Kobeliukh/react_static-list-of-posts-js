@@ -1,4 +1,7 @@
+import './PostInfo.scss';
+
 import { CommentList } from '../CommentList';
+import { UserInfo } from '../UserInfo';
 
 export const PostInfo = ({ post, comments, user }) => (
   <div className="PostInfo">
@@ -8,9 +11,7 @@ export const PostInfo = ({ post, comments, user }) => (
       <p>
         {' Posted by  '}
 
-        <a className="UserInfo" href={`mailto:${user.email}`}>
-          {user.name}
-        </a>
+        <UserInfo user={user} />
       </p>
     </div>
 
@@ -19,7 +20,7 @@ export const PostInfo = ({ post, comments, user }) => (
     </p>
 
     {comments.length !== 0 ? (
-      <CommentList />
+      <CommentList comments={comments} />
     ) : (
       <>
         <hr />
